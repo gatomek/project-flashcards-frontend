@@ -1,0 +1,104 @@
+.card {
+    border: solid 0 #2e303a;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.option {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+}
+
+.active {
+    background-color: burlywood;
+}
+
+.button {
+    margin: 5px;
+    padding: 5px;
+    width: 75px;
+    height: 75px;
+    font-weight: bolder;
+    box-sizing: border-box;
+}
+
+.hr {
+    width: 100%;
+    border: solid 1px indigo;
+    box-sizing: border-box;
+    margin: 5px;
+}
+
+.id {
+    margin-right: 15px;
+}
+
+.correct {
+    border: solid 3px darkgreen;
+    box-sizing: border-box;
+}
+
+.correctState {
+    border: solid 5px darkgreen;
+    box-sizing: border-box;
+}
+
+.normalState {
+    border: solid 5px gray;
+    box-sizing: border-box;
+}
+
+.error {
+    border: solid 3px red;
+    box-sizing: border-box;
+}
+
+.normal {
+    border: solid 3px lightgray;
+    box-sizing: border-box;
+}
+
+.container {
+    border: solid 0 red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: lightgray;
+}
+
+.mid {
+    flex-grow: 1;
+    padding: 0;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.bottom {
+    border-top: solid 1px gray;
+    padding: 0;
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: lightgray;
+}
