@@ -1,0 +1,19 @@
+.root {
+    width: 100%;
+    border: solid 0 lightgray;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    margin: 5px;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    font-weight: bolder;
+    box-sizing: border-box;
+    text-wrap: nowrap;
+}

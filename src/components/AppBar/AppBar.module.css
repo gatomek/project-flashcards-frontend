@@ -1,0 +1,14 @@
+.root {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: solid 0 red;
+    width: 100%;
+    align-items: center;
+}
+
+.label {
+    padding: 5px;
+    margin: 5px;
+}
+
