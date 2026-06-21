@@ -85,8 +85,9 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
     }
 
     const reload = () => {
-        setState([]);
         setFinished(false);
+        setState([]);
+        setResult(undefined);
     }
 
     const calcClassNameForButton = (id: string) => [
