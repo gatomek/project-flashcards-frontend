@@ -31,6 +31,11 @@ jobs:
         run: npm ci
       - name: Build app
         run: npm run build-prod
+        env:
+          VITE_KEYCLOAK_URL: ${{ vars.PROD_KEYCLOAK_URL }}
+          VITE_KEYCLOAK_REALM: ${{ vars.PROD_KEYCLOAK_REALM }}
+          VITE_KEYCLOAK_CLIENT_ID: ${{ vars.PROD_KEYCLOAK_CLIENT_ID }}
+          VITE_BACKEND_URL: ${{ vars.PROD_BACKEND_URL }}
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
