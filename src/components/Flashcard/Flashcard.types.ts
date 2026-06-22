@@ -18,6 +18,7 @@ export interface Option {
 export interface Content {
     main: string;
     options: Option[];
+    img?: string;
 }
 
 export interface Flashcard {
