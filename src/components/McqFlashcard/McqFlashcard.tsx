@@ -117,6 +117,8 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
             <div className={styles.mid}>
                 <div className={styles.container}>
                     <div className={styles.top} style={{backgroundColor: 'white'}}>
+                    </div>
+                    <div className={styles.mid}>
                         <div className={styles.card}>
                             <Markdown>{card.query.main}</Markdown>
                             {
@@ -128,8 +130,6 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
                                 )
                             }
                         </div>
-                    </div>
-                    <div className={styles.mid}>
                     </div>
                     <div className={styles.bottom} style={{backgroundColor: 'white', zIndex: 10}}>
                         <div style={{
