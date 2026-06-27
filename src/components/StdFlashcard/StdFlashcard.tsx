@@ -1,5 +1,5 @@
 import styles from './StdFlashcard.module.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import type {FlashcardProps} from "../Flashcard/Flashcard.types.ts";
 import type {Summary} from "../Board/Board.types.ts";
 import Markdown from 'react-markdown';
@@ -16,6 +16,10 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
     } = props;
 
     const [finished, setFinished] = useState(false);
+
+    useEffect(() => {
+        setFinished(false);
+    }, [card])
 
     const evaluate = (uuid: string, r: keyof Summary) => {
         onRate(uuid, r);
