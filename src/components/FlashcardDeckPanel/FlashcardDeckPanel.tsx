@@ -9,7 +9,8 @@ export interface FlashcardDeckPanelProps {
 
 export function FlashcardDeckPanel(props: Readonly<FlashcardDeckPanelProps>) {
     const [index, setIndex] = useState<undefined | number>();
-    const decks = props.flashcardDecks;
+    const decks = props.flashcardDecks
+        .toSorted( (a,b) => a.title.localeCompare(b.title));
 
     if (index != undefined) {
         return (
@@ -20,15 +21,13 @@ export function FlashcardDeckPanel(props: Readonly<FlashcardDeckPanelProps>) {
     return (
         <div className={styles.root}>
             <h2>Lista talii ({decks.length})</h2>
-            <div>
-                {
-                    decks.toSorted( (a,b) => a.title.localeCompare(b.title))
-                        .map((d, index) =>
-                        <button key={d.title} className={styles.button} onClick={() => setIndex(index)}>{
-                            d.title} <br/>({d.cards.length})
-                        </button>
-                    )
-                }
+            <div> {
+                decks.map((d, index) =>
+                    <button key={d.title} className={styles.button} onClick={() => setIndex(index)}>{
+                        d.title} <br/>({d.cards.length})
+                    </button>
+                )
+            }
             </div>
         </div>
     )
