@@ -15,7 +15,7 @@ function fetchDecks(): Promise<FlashcardDeck[]> {
             if (res.ok) {
                 return res.json();
             } else {
-                throw new Error(`Response status: ${res.status}`);
+                throw new Error(`Failed to fetch decks from ${backendUrl} (${res.status} ${res.statusText})`);
             }
         });
 }
