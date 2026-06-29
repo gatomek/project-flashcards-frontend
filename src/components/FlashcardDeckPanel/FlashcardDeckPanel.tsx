@@ -1,11 +1,7 @@
-import type {FlashcardDeck} from "../Flashcard/Flashcard.types.ts";
 import {Board} from "../Board/Board.tsx";
 import {useState} from "react";
 import styles from './FlashcardDeckPanel.module.css';
-
-export interface FlashcardDeckPanelProps {
-    flashcardDecks: FlashcardDeck[];
-}
+import type {FlashcardDeckPanelProps} from "./FlashcardDeckPanel.types.ts";
 
 export function FlashcardDeckPanel(props: Readonly<FlashcardDeckPanelProps>) {
     const [index, setIndex] = useState<undefined | number>();
