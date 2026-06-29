@@ -10,8 +10,8 @@ if (!backendUrl) {
     throw new Error('Missing required environment variable: VITE_BACKEND_URL');
 }
 
-function fetchDecks(): Promise<FlashcardDeck[]> {
-    return fetch(backendUrl)
+function fetchDecks(signal: AbortSignal): Promise<FlashcardDeck[]> {
+    return fetch(backendUrl, {signal})
         .then((res) => {
             if (res.ok) {
                 return res.json();
@@ -24,7 +24,7 @@ function fetchDecks(): Promise<FlashcardDeck[]> {
 export function DeckProvider() {
     const {data, isSuccess, isPending} = useQuery<FlashcardDeck[]>({
         queryKey: ['decks'],
-        queryFn: () => fetchDecks()
+        queryFn: ({signal}) => fetchDecks(signal)
     })
 
     if (isPending) {
