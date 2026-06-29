@@ -1,6 +1,7 @@
 import {FlashcardDeckPanel} from "../FlashcardDeckPanel/FlashcardDeckPanel.tsx";
 import type {FlashcardDeck} from "../Flashcard/Flashcard.types.ts";
 import {useQuery} from "@tanstack/react-query";
+import {NoDeckInfo} from "../NoDeckInfo/NoDeckInfo.tsx";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -28,6 +29,12 @@ export function DeckProvider() {
     if (isPending) {
         return (
             <title>Flashcards ...</title>
+        )
+    }
+
+    if( !isSuccess) {
+        return (
+            <NoDeckInfo/>
         )
     }
 
