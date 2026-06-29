@@ -8,18 +8,30 @@ if (!backendUrl) {
     throw new Error('Missing required environment variable: VITE_BACKEND_URL');
 }
 
-function fetchDecks() : Promise<FlashcardDeck[]> {
+function fetchDecks(): Promise<FlashcardDeck[]> {
     return fetch(backendUrl)
-        .then((res) => res.json());
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                throw new Error(`Response status: ${res.status}`);
+            }
+        });
 }
 
-export function DeckProvider( ) {
-    const { data } = useQuery<FlashcardDeck[]>({
+export function DeckProvider() {
+    const {data, isSuccess, isPending} = useQuery<FlashcardDeck[]>({
         queryKey: ['decks'],
         queryFn: () => fetchDecks()
     })
 
+    if (isPending) {
+        return (
+            <title>Flashcards ...</title>
+        )
+    }
+
     return (
-        data && <FlashcardDeckPanel flashcardDecks={data}/>
+        isSuccess && data && <FlashcardDeckPanel flashcardDecks={data}/>
     )
 }
