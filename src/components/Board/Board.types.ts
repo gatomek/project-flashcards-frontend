@@ -1,8 +1,8 @@
-import type {FlashcardDeck} from "../Flashcard/Flashcard.types.ts";
+import type {FlashcardDeck} from '../Flashcard/Flashcard.types.ts';
 
 export interface BoardProps {
     flashcardDeck: FlashcardDeck;
-    setIndex: ( value: undefined | number) => void;
+    setIndex: (value: undefined | number) => void;
 }
 
 export interface Summary {
