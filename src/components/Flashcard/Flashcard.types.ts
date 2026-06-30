@@ -1,4 +1,4 @@
-import type {Summary} from "../Board/Board.types.ts";
+import type {Summary} from '../Board/Board.types.ts';
 
 export interface FlashcardProps {
     card: Flashcard;

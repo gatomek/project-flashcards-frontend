@@ -1,10 +1,10 @@
-import styles from './Board.module.css'
+import styles from './Board.module.css';
 
-import {useCallback, useReducer, useState} from "react";
-import {StdFlashcard} from "../StdFlashcard/StdFlashcard.tsx";
-import {McqFlashcard} from "../McqFlashcard/McqFlashcard.tsx";
-import type {BoardProps, Summary} from "./Board.types.ts";
-import type {Flashcard, FlashcardProps} from "../Flashcard/Flashcard.types.ts";
+import {useCallback, useReducer, useState} from 'react';
+import {StdFlashcard} from '../StdFlashcard/StdFlashcard.tsx';
+import {McqFlashcard} from '../McqFlashcard/McqFlashcard.tsx';
+import type {BoardProps, Summary} from './Board.types.ts';
+import type {Flashcard, FlashcardProps} from '../Flashcard/Flashcard.types.ts';
 
 const initialSummary: Summary = {
     failed: 0,
@@ -12,7 +12,7 @@ const initialSummary: Summary = {
     ok: 0,
     good: 0,
     perfect: 0
-}
+};
 
 interface SummaryAction {
     type: 'increment' | 'reset' | 'reset_all';
@@ -35,7 +35,7 @@ const summaryReducer = (state: Summary, action: SummaryAction) => {
         default:
             return state;
     }
-}
+};
 
 const shuffle = (cards: Flashcard[]): Flashcard[] => {
     for (let i = cards.length - 1; i > 0; i--) {
@@ -43,12 +43,10 @@ const shuffle = (cards: Flashcard[]): Flashcard[] => {
         [cards[i], cards[j]] = [cards[j], cards[i]];
     }
     return cards;
-}
+};
 
 export function Board(props: Readonly<BoardProps>) {
-    const {
-        flashcardDeck
-    } = props;
+    const {flashcardDeck} = props;
 
     const size = flashcardDeck.cards.length;
 
@@ -59,7 +57,7 @@ export function Board(props: Readonly<BoardProps>) {
     const [summary, setSummary] = useReducer(summaryReducer, initialSummary);
 
     const onNext = useCallback(() => {
-        setIndex(prev => prev + 1);
+        setIndex((prev) => prev + 1);
     }, []);
 
     const onCancel = useCallback(() => {
@@ -70,26 +68,31 @@ export function Board(props: Readonly<BoardProps>) {
     const onRate = useCallback((uuid: string, rate: keyof Summary) => {
         setSummary({type: 'increment', payload: rate});
         console.log(uuid + ': ' + rate);
-    }, [])
+    }, []);
 
     if (!run) {
         return (
             <div className={styles.root}>
-                <h1>Talia {flashcardDeck.title} ({size})</h1>
+                <h1>
+                    Talia {flashcardDeck.title} ({size})
+                </h1>
                 <div className={styles.flexrow}>
                     <button className={styles.button} onClick={() => props.setIndex(undefined)}>
                         Powrót do listy talii
                     </button>
-                    <button className={styles.button} onClick={() => {
-                        setRun(true);
-                        setSummary({type: 'reset_all', payload: 'ok'});
-                        setFlashcards(shuffle(flashcardDeck.cards));
-                    }}>
+                    <button
+                        className={styles.button}
+                        onClick={() => {
+                            setRun(true);
+                            setSummary({type: 'reset_all', payload: 'ok'});
+                            setFlashcards(shuffle(flashcardDeck.cards));
+                        }}
+                    >
                         Start
                     </button>
                 </div>
             </div>
-        )
+        );
     }
 
     if (index === size) {
@@ -97,27 +100,29 @@ export function Board(props: Readonly<BoardProps>) {
             <div className={styles.root}>
                 <table className={styles.table}>
                     <thead>
-                    <tr>
-                        <th className={styles.cell}>FAILED</th>
-                        <th className={styles.cell}>AGAIN</th>
-                        <th className={styles.cell}>OK</th>
-                        <th className={styles.cell}>GOOD</th>
-                        <th className={styles.cell}>PERFECT</th>
-                    </tr>
+                        <tr>
+                            <th className={styles.cell}>FAILED</th>
+                            <th className={styles.cell}>AGAIN</th>
+                            <th className={styles.cell}>OK</th>
+                            <th className={styles.cell}>GOOD</th>
+                            <th className={styles.cell}>PERFECT</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td className={styles.cell}>{summary.failed}</td>
-                        <td className={styles.cell}>{summary.again}</td>
-                        <td className={styles.cell}>{summary.ok}</td>
-                        <td className={styles.cell}>{summary.good}</td>
-                        <td className={styles.cell}>{summary.perfect}</td>
-                    </tr>
+                        <tr>
+                            <td className={styles.cell}>{summary.failed}</td>
+                            <td className={styles.cell}>{summary.again}</td>
+                            <td className={styles.cell}>{summary.ok}</td>
+                            <td className={styles.cell}>{summary.good}</td>
+                            <td className={styles.cell}>{summary.perfect}</td>
+                        </tr>
                     </tbody>
                 </table>
-                <button className={styles.button} onClick={() => onCancel()}>Koniec</button>
+                <button className={styles.button} onClick={() => onCancel()}>
+                    Koniec
+                </button>
             </div>
-        )
+        );
     }
 
     const flashcard = flashcards[index];
@@ -134,9 +139,7 @@ export function Board(props: Readonly<BoardProps>) {
 
     return (
         <div className={styles.root}>
-            {
-                flashcard.type === 'std' ? <StdFlashcard {...ps}/> : <McqFlashcard {...ps}/>
-            }
+            {flashcard.type === 'std' ? <StdFlashcard {...ps} /> : <McqFlashcard {...ps} />}
         </div>
-    )
+    );
 }

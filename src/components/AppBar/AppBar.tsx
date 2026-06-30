@@ -1,4 +1,4 @@
-import {Login} from "../Login/Login.tsx";
+import {Login} from '../Login/Login.tsx';
 import styles from './AppBar.module.css';
 
 export function AppBar() {
@@ -7,9 +7,9 @@ export function AppBar() {
             <div className={styles.label}>
                 <h1>Flashcards</h1>
             </div>
-            <div >
-                <Login/>
+            <div>
+                <Login />
             </div>
         </div>
-    )
+    );
 }

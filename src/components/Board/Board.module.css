@@ -41,10 +41,11 @@ tr {
     grid-template-columns: repeat(5, 1fr);
 }
 
-th, td {
+th,
+td {
     border: 1px solid #cbd5e1;
 }
 
 th {
-   background-color: #f1f5f9;
+    background-color: #f1f5f9;
 }

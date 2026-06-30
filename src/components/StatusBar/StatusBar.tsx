@@ -1,5 +1,3 @@
 export function StatusBar() {
-    return (
-        <h4>Status Bar</h4>
-    )
+    return <h4>Status Bar</h4>;
 }

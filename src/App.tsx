@@ -1,11 +1,11 @@
-import styles from './App.module.css'
-import {AppBar} from "./components/AppBar/AppBar.tsx";
-import {ReactKeycloakProvider} from "@react-keycloak/web";
+import styles from './App.module.css';
+import {AppBar} from './components/AppBar/AppBar.tsx';
+import {ReactKeycloakProvider} from '@react-keycloak/web';
 import keycloak from './keycloak.ts';
-import {QueryClient, QueryClientProvider,} from '@tanstack/react-query';
-import {DeckProvider} from "./components/DeckProvider/DeckProvider.tsx";
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {DeckProvider} from './components/DeckProvider/DeckProvider.tsx';
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
     return (
@@ -21,16 +21,16 @@ function App() {
                 <div className={styles.root}>
                     <div className={styles.container}>
                         <div className={styles.top}>
-                            <AppBar/>
+                            <AppBar />
                         </div>
                         <div className={styles.mid}>
-                            <DeckProvider/>
+                            <DeckProvider />
                         </div>
                     </div>
                 </div>
             </QueryClientProvider>
         </ReactKeycloakProvider>
-    )
+    );
 }
 
-export default App
+export default App;
