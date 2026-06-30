@@ -49,7 +49,7 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
 
                     <div className={styles.middle}>
                         {card.img &&
-                            <img src={card.img} className={styles.img} alt="" loading="lazy" decoding="async"/>
+                            <img src={card.img} className={styles.img} alt="" loading="lazy" decoding="async" aria-hidden="true"/>
                         }
                         <h3>
                             <Markdown>{card.query.main}</Markdown>
