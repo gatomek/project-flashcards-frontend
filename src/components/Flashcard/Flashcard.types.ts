@@ -15,18 +15,18 @@ export interface Option {
     content: string[];
 }
 
-export interface Content {
+export interface Page {
     main: string;
     options: Option[];
-    img?: string;
 }
 
 export interface Flashcard {
     name: string;
     type: string;
     uuid: string;
-    query: Content;
-    answer: Content;
+    img?: string;
+    query: Page;
+    answer: Page;
 }
 
 export interface FlashcardDeck {
