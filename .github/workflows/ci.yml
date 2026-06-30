@@ -13,5 +13,5 @@ jobs:
         run: npm ci
       - name: Build solution
         run: npm run build-prod
-      - name: Test prettier
+      - name: Check format
         run: npm run format:check
