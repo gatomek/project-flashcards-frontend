@@ -12,7 +12,7 @@ export interface FlashcardProps {
 
 export interface Option {
     id: string;
-    content: string[];
+    content: string;
 }
 
 export interface Page {
