@@ -116,7 +116,7 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
                             {options.map((o: Option) => (
                                 <div key={o.id} className={styles.option}>
                                     <span className={styles.id}>{o.id}.</span>
-                                    <Markdown>{o.content.join(' ')}</Markdown>
+                                    <Markdown>{o.content}</Markdown>
                                 </div>
                             ))}
                         </div>
