@@ -18,6 +18,8 @@ https://gatomek.github.io/project-flashcards-frontend/
 - https://www.computerhope.com/htmcolor.htm
 - https://oneuptime.com/blog/post/2026-01-15-cicd-pipelines-react-github-actions/view
 - https://react.dev/learn/you-might-not-need-an-effect
+- https://www.developerway.com/posts/hard-react-questions-and-modal-dialog
+- https://medium.com/@SaimRizvi/beginners-guide-to-building-a-modal-with-react-5ba05b218214
 
 ## Keycloak installation
 

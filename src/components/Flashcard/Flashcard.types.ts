@@ -27,6 +27,7 @@ export interface Flashcard {
     img?: string;
     query: Page;
     answer: Page;
+    info?: string;
 }
 
 export interface FlashcardDeck {
