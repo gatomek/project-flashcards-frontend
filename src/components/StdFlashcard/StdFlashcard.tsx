@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import type {FlashcardProps} from '../Flashcard/Flashcard.types.ts';
 import type {Summary} from '../Board/Board.types.ts';
 import Markdown from 'react-markdown';
-import {Modal} from "../Modal/Modal.tsx";
+import {Modal} from '../Modal/Modal.tsx';
 
 export function StdFlashcard(props: Readonly<FlashcardProps>) {
     const {card, index, size, title, onNext, onCancel, onRate} = props;
@@ -33,15 +33,17 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
             <div className={styles.container}>
                 <div className={styles.top}>
                     <div style={{display: 'flex'}}>
-                        <button className={styles.button} disabled onClick={() => {
-                        }}>
+                        <button className={styles.button} disabled onClick={() => {}}>
                             {index + 1}/{size}
                         </button>
                         <button className={styles.button} disabled={!finished} onClick={() => reload()}>
                             ⭮
                         </button>
-                        <button className={styles.button} disabled={!finished && card.info != null}
-                                onClick={() => showNotes()}>
+                        <button
+                            className={styles.button}
+                            disabled={!finished && card.info != null}
+                            onClick={() => showNotes()}
+                        >
                             𝒊
                         </button>
                         <button className={styles.button} onClick={() => onCancel()}>
@@ -66,7 +68,7 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
                                 <Markdown>{card.query.main}</Markdown>
                             </h3>
                         </div>
-                        <hr className={styles.hr}/>
+                        <hr className={styles.hr} />
                         <div className={styles.middle}>
                             {finished && (
                                 <h3>
@@ -110,12 +112,11 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
                     </div>
                 </div>
             </div>
-            {
-                isInfoVisible && card.info != null &&
-                <Modal onClick={() => setIsInfoVisible(false)} size={"large"}>
+            {isInfoVisible && card.info != null && (
+                <Modal onClick={() => setIsInfoVisible(false)} size={'large'}>
                     <Markdown>{card.info}</Markdown>
                 </Modal>
-            }
+            )}
         </>
     );
 }

@@ -1,6 +1,6 @@
-import {type ReactNode, useEffect} from "react";
+import {type ReactNode, useEffect} from 'react';
 import styles from './Modal.module.css';
-import {createPortal} from "react-dom";
+import {createPortal} from 'react-dom';
 
 export interface ModalProps {
     children: ReactNode;
@@ -9,7 +9,7 @@ export interface ModalProps {
 }
 
 export function Modal(props: Readonly<ModalProps>) {
-    const { onClick, size, children } = props;
+    const {onClick, size, children} = props;
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
@@ -26,28 +26,21 @@ export function Modal(props: Readonly<ModalProps>) {
     }, [onClick]);
 
     const className = `${styles.dialog} ${size}`;
-    return (
-        createPortal(
-            <div>
-                <div onClick={onClick}
-                    className={styles.backdrop}
-                ></div>
-                <div className={className}>
-                    <div className={styles.container}>
-                        <div className={styles.top}></div>
-                        <div className={styles.mid}>
-                            {children}
-                        </div>
-                        <div className={styles.bottom}>
-                            <button className={styles.button}
-                                    onClick={onClick}
-                            >
-                                OK
-                            </button>
-                        </div>
+    return createPortal(
+        <div>
+            <div onClick={onClick} className={styles.backdrop}></div>
+            <div className={className}>
+                <div className={styles.container}>
+                    <div className={styles.top}></div>
+                    <div className={styles.mid}>{children}</div>
+                    <div className={styles.bottom}>
+                        <button className={styles.button} onClick={onClick}>
+                            OK
+                        </button>
                     </div>
                 </div>
-            </div>, document.body)
-
-    )
+            </div>
+        </div>,
+        document.body
+    );
 }
