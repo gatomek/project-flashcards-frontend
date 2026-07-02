@@ -41,8 +41,8 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
                         </button>
                         <button
                             className={styles.button}
-                            disabled={!finished && card.info != null}
-                            onClick={() => showNotes()}
+                            disabled={!finished || card.info == null}
+                            onClick={showNotes}
                         >
                             𝒊
                         </button>
