@@ -39,11 +39,7 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
                         <button className={styles.button} disabled={!finished} onClick={() => reload()}>
                             ⭮
                         </button>
-                        <button
-                            className={styles.button}
-                            disabled={!finished || card.info == null}
-                            onClick={showNotes}
-                        >
+                        <button className={styles.button} disabled={!finished || card.info == null} onClick={showNotes}>
                             𝒊
                         </button>
                         <button className={styles.button} onClick={() => onCancel()}>
