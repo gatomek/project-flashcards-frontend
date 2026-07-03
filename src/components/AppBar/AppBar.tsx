@@ -5,7 +5,9 @@ export function AppBar() {
     return (
         <div className={styles.root}>
             <div className={styles.label}>
-                <h1>Flashcards {APP_VERSION}</h1>
+                <h1>
+                    Flashcards {APP_VERSION} {COMMIT_HASH && `| ${COMMIT_HASH}`}
+                </h1>
             </div>
             <div>
                 <Login />
