@@ -4,6 +4,7 @@ import type {FlashcardProps} from '../Flashcard/Flashcard.types.ts';
 import type {Summary} from '../Board/Board.types.ts';
 import Markdown from 'react-markdown';
 import {Modal} from '../Modal/Modal.tsx';
+import rehypeExternalLinks from 'rehype-external-links';
 
 export function StdFlashcard(props: Readonly<FlashcardProps>) {
     const {card, index, size, title, onNext, onCancel, onRate} = props;
@@ -110,7 +111,7 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
             </div>
             {isInfoVisible && card.info != null && (
                 <Modal onClick={() => setIsInfoVisible(false)} size={'large'}>
-                    <Markdown>{card.info}</Markdown>
+                    <Markdown rehypePlugins={[[rehypeExternalLinks, {target: '_blank'}]]}>{card.info}</Markdown>
                 </Modal>
             )}
         </>

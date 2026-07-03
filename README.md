@@ -26,3 +26,13 @@ https://gatomek.github.io/project-flashcards-frontend/
 ```
 npm install --save keycloak-js @react-keycloak/web
 ```
+
+## React Markdown
+
+### Remark Plugins
+
+https://github.com/remarkjs/remark/blob/main/doc/plugins.md
+
+### Rehype Plugins
+
+https://github.com/remarkjs/remark/blob/main/doc/plugins.md
