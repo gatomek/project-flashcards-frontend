@@ -5,7 +5,7 @@ export function AppBar() {
     return (
         <div className={styles.root}>
             <div className={styles.label}>
-                <h1>Flashcards</h1>
+                <h1>Flashcards {APP_VERSION}</h1>
             </div>
             <div>
                 <Login />
