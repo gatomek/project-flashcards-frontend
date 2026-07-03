@@ -6,7 +6,7 @@ export function AppBar() {
         <div className={styles.root}>
             <div className={styles.label}>
                 <h1>
-                    Flashcards {APP_VERSION} [{COMMIT_HASH}]
+                    Flashcards {APP_VERSION} {COMMIT_HASH && `| ${COMMIT_HASH}`}
                 </h1>
             </div>
             <div>
