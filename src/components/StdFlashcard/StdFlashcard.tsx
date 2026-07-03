@@ -111,7 +111,11 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
             </div>
             {isInfoVisible && card.info != null && (
                 <Modal onClick={() => setIsInfoVisible(false)} size={'large'}>
-                    <Markdown rehypePlugins={[[rehypeExternalLinks, {target: '_blank'}]]}>{card.info}</Markdown>
+                    <Markdown
+                        rehypePlugins={[[rehypeExternalLinks, {target: '_blank', rel: ['noopener', 'noreferrer']}]]}
+                    >
+                        {card.info}
+                    </Markdown>
                 </Modal>
             )}
         </>
