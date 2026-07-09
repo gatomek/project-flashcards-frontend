@@ -12,11 +12,7 @@ export interface SquareButtonProps {
 export function SquareButton(props: Readonly<SquareButtonProps>) {
     const cn = [styles.button, props.className ?? '', props.size === 'L' ? styles.large : ''].join(' ');
     return (
-        <button
-            disabled={props.disabled}
-            className={cn}
-            onClick={props.onClick}
-        >
+        <button disabled={props.disabled} className={cn} onClick={props.onClick}>
             {props.children}
         </button>
     );
