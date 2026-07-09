@@ -1,6 +1,7 @@
 import {type ReactNode, useEffect} from 'react';
 import styles from './Modal.module.css';
 import {createPortal} from 'react-dom';
+import {SquareButton} from "../SquareButton/SquareButton.tsx";
 
 export interface ModalProps {
     children: ReactNode;
@@ -34,9 +35,9 @@ export function Modal(props: Readonly<ModalProps>) {
                     <div className={styles.top}></div>
                     <div className={styles.mid}>{children}</div>
                     <div className={styles.bottom}>
-                        <button className={styles.button} onClick={onClick}>
+                        <SquareButton onClick={onClick}>
                             OK
-                        </button>
+                        </SquareButton>
                     </div>
                 </div>
             </div>

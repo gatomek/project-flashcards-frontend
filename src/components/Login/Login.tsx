@@ -1,5 +1,5 @@
 import {useKeycloak} from '@react-keycloak/web';
-import styles from './Login.module.css';
+import {SquareButton} from "../SquareButton/SquareButton.tsx";
 
 export function Login() {
     const {keycloak} = useKeycloak();
@@ -7,18 +7,18 @@ export function Login() {
     return keycloak.authenticated ? (
         <div className="logout">
             <div>
-                <button className={styles.button} onClick={() => keycloak.logout()}>
+                <SquareButton onClick={() => keycloak.logout()}>
                     {keycloak.tokenParsed?.preferred_username}
                     <br />
                     Logout
-                </button>
+                </SquareButton>
             </div>
         </div>
     ) : (
         <div className="login">
-            <button className={styles.button} onClick={() => keycloak.login()}>
+            <SquareButton onClick={() => keycloak.login()}>
                 Login
-            </button>
+            </SquareButton>
         </div>
     );
 }

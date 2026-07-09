@@ -15,15 +15,6 @@
     align-items: center;
 }
 
-.button {
-    margin: 5px;
-    padding: 5px;
-    width: 100px;
-    height: 100px;
-    font-weight: bolder;
-    box-sizing: border-box;
-}
-
 .table {
     border-collapse: collapse;
 }
