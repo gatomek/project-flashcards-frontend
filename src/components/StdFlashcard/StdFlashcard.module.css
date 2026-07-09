@@ -74,15 +74,6 @@
     background-color: lightgray;
 }
 
-.button {
-    margin: 5px;
-    padding: 5px;
-    width: 75px;
-    height: 75px;
-    font-weight: bolder;
-    box-sizing: border-box;
-}
-
 .img {
     max-width: 250px;
     max-height: 250px;

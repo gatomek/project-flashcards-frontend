@@ -5,6 +5,7 @@ import {StdFlashcard} from '../StdFlashcard/StdFlashcard.tsx';
 import {McqFlashcard} from '../McqFlashcard/McqFlashcard.tsx';
 import type {BoardProps, Summary} from './Board.types.ts';
 import type {Flashcard, FlashcardProps} from '../Flashcard/Flashcard.types.ts';
+import {SquareButton} from '../SquareButton/SquareButton.tsx';
 
 const initialSummary: Summary = {
     failed: 0,
@@ -77,19 +78,19 @@ export function Board(props: Readonly<BoardProps>) {
                     Talia {flashcardDeck.title} ({size})
                 </h1>
                 <div className={styles.flexrow}>
-                    <button className={styles.button} onClick={() => props.setIndex(undefined)}>
-                        Powrót do listy talii
-                    </button>
-                    <button
-                        className={styles.button}
+                    <SquareButton onClick={() => props.setIndex(undefined)} size={'L'}>
+                        Powrót do <br /> listy talii
+                    </SquareButton>
+                    <SquareButton
                         onClick={() => {
                             setRun(true);
                             setSummary({type: 'reset_all', payload: 'ok'});
                             setFlashcards(shuffle(flashcardDeck.cards));
                         }}
+                        size={'L'}
                     >
                         Start
-                    </button>
+                    </SquareButton>
                 </div>
             </div>
         );
@@ -118,9 +119,9 @@ export function Board(props: Readonly<BoardProps>) {
                         </tr>
                     </tbody>
                 </table>
-                <button className={styles.button} onClick={() => onCancel()}>
+                <SquareButton onClick={() => onCancel()} size={'L'}>
                     Koniec
-                </button>
+                </SquareButton>
             </div>
         );
     }

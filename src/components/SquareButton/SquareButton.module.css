@@ -1,8 +1,13 @@
 .button {
     margin: 5px;
     padding: 5px;
-    width: 75px;
     height: 75px;
+    min-width: 75px;
     font-weight: bolder;
     box-sizing: border-box;
+}
+
+.large {
+    height: 100px;
+    min-width: 100px;
 }

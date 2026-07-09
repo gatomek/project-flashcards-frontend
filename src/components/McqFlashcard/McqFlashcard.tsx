@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import type {Flashcard, FlashcardProps, Option} from '../Flashcard/Flashcard.types.ts';
 import type {Summary} from '../Board/Board.types.ts';
 import Markdown from 'react-markdown';
+import {SquareButton} from '../SquareButton/SquareButton.tsx';
 
 const calcValidState = (card: Flashcard) => {
     const valid: string[] = [];
@@ -82,7 +83,7 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
     };
 
     const calcClassNameForButton = (id: string) =>
-        [styles.button, isActive(state, id) ? styles.active : '', finished && evaluateAnswer(id)].join(' ');
+        [isActive(state, id) ? styles.active : '', finished && evaluateAnswer(id)].join(' ');
 
     const calcClassNameForIndicator = (id: string) =>
         [finished && isValid(validState, id) ? styles.correctState : styles.normalState].join(' ');
@@ -93,18 +94,18 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
         <div className={styles.container}>
             <div className={styles.top}>
                 <div style={{display: 'flex'}}>
-                    <button className={styles.button} disabled onClick={() => {}}>
+                    <SquareButton disabled onClick={() => {}}>
                         {index + 1}/{size}
-                    </button>
-                    <button className={styles.button} disabled={!finished} onClick={() => reload()}>
+                    </SquareButton>
+                    <SquareButton disabled={!finished} onClick={() => reload()}>
                         ⭮
-                    </button>
-                    <button className={styles.button} disabled onClick={() => showNotes()}>
+                    </SquareButton>
+                    <SquareButton disabled onClick={() => showNotes()}>
                         𝒊
-                    </button>
-                    <button className={styles.button} onClick={() => onCancel()}>
-                        Powrót do talii {title}
-                    </button>
+                    </SquareButton>
+                    <SquareButton onClick={() => onCancel()}>
+                        Powrót do <br /> talii {title}
+                    </SquareButton>
                 </div>
             </div>
             <div className={styles.mid}>
@@ -143,9 +144,9 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
                                         paddingBottom: '0.5rem'
                                     }}
                                 >
-                                    <button className={calcClassNameForButton(o.id)} onClick={() => toggle(o.id)}>
+                                    <SquareButton className={calcClassNameForButton(o.id)} onClick={() => toggle(o.id)}>
                                         {o.id}
-                                    </button>
+                                    </SquareButton>
                                     <div
                                         className={calcClassNameForIndicator(o.id)}
                                         style={{width: '75px', height: '10px'}}
@@ -157,31 +158,15 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
                 </div>
             </div>
             <div className={styles.bottom}>
-                <div>
-                    {!finished && (
-                        <button className={styles.button} onClick={() => checkAnswer()}>
-                            Pokaż
-                        </button>
-                    )}
-                </div>
+                <div>{!finished && <SquareButton onClick={() => checkAnswer()}>Pokaż</SquareButton>}</div>
                 <div>
                     {finished && (
                         <>
-                            <button className={styles.button} onClick={() => evaluate(card.uuid, 'failed')}>
-                                FAILED
-                            </button>
-                            <button className={styles.button} onClick={() => evaluate(card.uuid, 'again')}>
-                                AGAIN
-                            </button>
-                            <button className={styles.button} onClick={() => evaluate(card.uuid, 'ok')}>
-                                OK
-                            </button>
-                            <button className={styles.button} onClick={() => evaluate(card.uuid, 'good')}>
-                                GOOD
-                            </button>
-                            <button className={styles.button} onClick={() => evaluate(card.uuid, 'perfect')}>
-                                PERFECT
-                            </button>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'failed')}>FAILED</SquareButton>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'again')}>AGAIN</SquareButton>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'ok')}>OK</SquareButton>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'good')}>GOOD</SquareButton>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'perfect')}>PERFECT</SquareButton>
                         </>
                     )}
                 </div>

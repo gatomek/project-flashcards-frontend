@@ -5,6 +5,7 @@ import type {Summary} from '../Board/Board.types.ts';
 import Markdown from 'react-markdown';
 import {Modal} from '../Modal/Modal.tsx';
 import rehypeExternalLinks from 'rehype-external-links';
+import {SquareButton} from '../SquareButton/SquareButton.tsx';
 
 export function StdFlashcard(props: Readonly<FlashcardProps>) {
     const {card, index, size, title, onNext, onCancel, onRate} = props;
@@ -34,18 +35,18 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
             <div className={styles.container}>
                 <div className={styles.top}>
                     <div style={{display: 'flex'}}>
-                        <button className={styles.button} disabled onClick={() => {}}>
+                        <SquareButton disabled onClick={() => {}}>
                             {index + 1}/{size}
-                        </button>
-                        <button className={styles.button} disabled={!finished} onClick={() => reload()}>
+                        </SquareButton>
+                        <SquareButton disabled={!finished} onClick={() => reload()}>
                             ⭮
-                        </button>
-                        <button className={styles.button} disabled={!finished || card.info == null} onClick={showNotes}>
+                        </SquareButton>
+                        <SquareButton disabled={!finished || card.info == null} onClick={showNotes}>
                             𝒊
-                        </button>
-                        <button className={styles.button} onClick={() => onCancel()}>
-                            Powrót do talii {title}
-                        </button>
+                        </SquareButton>
+                        <SquareButton onClick={() => onCancel()}>
+                            Powrót do <br /> talii {title}
+                        </SquareButton>
                     </div>
                 </div>
                 <div className={styles.mid}>
@@ -77,32 +78,15 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
                 </div>
                 <div className={styles.bottom}>
                     <div style={{display: 'flex'}}>
-                        <div>
-                            {' '}
-                            {!finished && (
-                                <button className={styles.button} onClick={() => setFinished(true)}>
-                                    Pokaż
-                                </button>
-                            )}
-                        </div>
+                        <div> {!finished && <SquareButton onClick={() => setFinished(true)}>Pokaż</SquareButton>}</div>
                         <div style={{display: 'flex'}}>
                             {finished && (
                                 <div>
-                                    <button className={styles.button} onClick={() => evaluate(card.uuid, 'failed')}>
-                                        FAILED
-                                    </button>
-                                    <button className={styles.button} onClick={() => evaluate(card.uuid, 'again')}>
-                                        AGAIN
-                                    </button>
-                                    <button className={styles.button} onClick={() => evaluate(card.uuid, 'ok')}>
-                                        OK
-                                    </button>
-                                    <button className={styles.button} onClick={() => evaluate(card.uuid, 'good')}>
-                                        GOOD
-                                    </button>
-                                    <button className={styles.button} onClick={() => evaluate(card.uuid, 'perfect')}>
-                                        PERFECT
-                                    </button>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'failed')}>FAILED</SquareButton>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'again')}>AGAIN</SquareButton>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'ok')}>OK</SquareButton>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'good')}>GOOD</SquareButton>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'perfect')}>PERFECT</SquareButton>
                                 </div>
                             )}
                         </div>
