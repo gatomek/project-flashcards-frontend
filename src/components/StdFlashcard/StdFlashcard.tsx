@@ -5,7 +5,7 @@ import type {Summary} from '../Board/Board.types.ts';
 import Markdown from 'react-markdown';
 import {Modal} from '../Modal/Modal.tsx';
 import rehypeExternalLinks from 'rehype-external-links';
-import {SquareButton} from "../SquareButton/SquareButton.tsx";
+import {SquareButton} from '../SquareButton/SquareButton.tsx';
 
 export function StdFlashcard(props: Readonly<FlashcardProps>) {
     const {card, index, size, title, onNext, onCancel, onRate} = props;
@@ -45,7 +45,7 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
                             𝒊
                         </SquareButton>
                         <SquareButton onClick={() => onCancel()}>
-                            Powrót do <br/> talii {title}
+                            Powrót do <br /> talii {title}
                         </SquareButton>
                     </div>
                 </div>
@@ -78,32 +78,15 @@ export function StdFlashcard(props: Readonly<FlashcardProps>) {
                 </div>
                 <div className={styles.bottom}>
                     <div style={{display: 'flex'}}>
-                        <div>
-                            {' '}
-                            {!finished && (
-                                <SquareButton onClick={() => setFinished(true)}>
-                                    Pokaż
-                                </SquareButton>
-                            )}
-                        </div>
+                        <div> {!finished && <SquareButton onClick={() => setFinished(true)}>Pokaż</SquareButton>}</div>
                         <div style={{display: 'flex'}}>
                             {finished && (
                                 <div>
-                                    <SquareButton onClick={() => evaluate(card.uuid, 'failed')}>
-                                        FAILED
-                                    </SquareButton>
-                                    <SquareButton onClick={() => evaluate(card.uuid, 'again')}>
-                                        AGAIN
-                                    </SquareButton>
-                                    <SquareButton onClick={() => evaluate(card.uuid, 'ok')}>
-                                        OK
-                                    </SquareButton>
-                                    <SquareButton onClick={() => evaluate(card.uuid, 'good')}>
-                                        GOOD
-                                    </SquareButton>
-                                    <SquareButton  onClick={() => evaluate(card.uuid, 'perfect')}>
-                                        PERFECT
-                                    </SquareButton>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'failed')}>FAILED</SquareButton>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'again')}>AGAIN</SquareButton>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'ok')}>OK</SquareButton>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'good')}>GOOD</SquareButton>
+                                    <SquareButton onClick={() => evaluate(card.uuid, 'perfect')}>PERFECT</SquareButton>
                                 </div>
                             )}
                         </div>

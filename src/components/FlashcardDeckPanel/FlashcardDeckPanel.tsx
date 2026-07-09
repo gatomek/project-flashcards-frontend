@@ -2,7 +2,7 @@ import {Board} from '../Board/Board.tsx';
 import {useState} from 'react';
 import styles from './FlashcardDeckPanel.module.css';
 import type {FlashcardDeckPanelProps} from './FlashcardDeckPanel.types.ts';
-import {SquareButton} from "../SquareButton/SquareButton.tsx";
+import {SquareButton} from '../SquareButton/SquareButton.tsx';
 
 export function FlashcardDeckPanel(props: Readonly<FlashcardDeckPanelProps>) {
     const [index, setIndex] = useState<undefined | number>();
@@ -18,7 +18,7 @@ export function FlashcardDeckPanel(props: Readonly<FlashcardDeckPanelProps>) {
             <div>
                 {' '}
                 {decks.map((d, index) => (
-                    <SquareButton key={d.title} onClick={() => setIndex(index)} size={"L"}>
+                    <SquareButton key={d.title} onClick={() => setIndex(index)} size={'L'}>
                         {d.title} <br />({d.cards.length})
                     </SquareButton>
                 ))}

@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import type {Flashcard, FlashcardProps, Option} from '../Flashcard/Flashcard.types.ts';
 import type {Summary} from '../Board/Board.types.ts';
 import Markdown from 'react-markdown';
-import {SquareButton} from "../SquareButton/SquareButton.tsx";
+import {SquareButton} from '../SquareButton/SquareButton.tsx';
 
 const calcValidState = (card: Flashcard) => {
     const valid: string[] = [];
@@ -104,7 +104,7 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
                         𝒊
                     </SquareButton>
                     <SquareButton onClick={() => onCancel()}>
-                        Powrót do <br/> talii {title}
+                        Powrót do <br /> talii {title}
                     </SquareButton>
                 </div>
             </div>
@@ -158,31 +158,15 @@ export function McqFlashcard(props: Readonly<FlashcardProps>) {
                 </div>
             </div>
             <div className={styles.bottom}>
-                <div>
-                    {!finished && (
-                        <SquareButton onClick={() => checkAnswer()}>
-                            Pokaż
-                        </SquareButton>
-                    )}
-                </div>
+                <div>{!finished && <SquareButton onClick={() => checkAnswer()}>Pokaż</SquareButton>}</div>
                 <div>
                     {finished && (
                         <>
-                            <SquareButton onClick={() => evaluate(card.uuid, 'failed')}>
-                                FAILED
-                            </SquareButton>
-                            <SquareButton onClick={() => evaluate(card.uuid, 'again')}>
-                                AGAIN
-                            </SquareButton>
-                            <SquareButton onClick={() => evaluate(card.uuid, 'ok')}>
-                                OK
-                            </SquareButton>
-                            <SquareButton onClick={() => evaluate(card.uuid, 'good')}>
-                                GOOD
-                            </SquareButton>
-                            <SquareButton onClick={() => evaluate(card.uuid, 'perfect')}>
-                                PERFECT
-                            </SquareButton>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'failed')}>FAILED</SquareButton>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'again')}>AGAIN</SquareButton>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'ok')}>OK</SquareButton>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'good')}>GOOD</SquareButton>
+                            <SquareButton onClick={() => evaluate(card.uuid, 'perfect')}>PERFECT</SquareButton>
                         </>
                     )}
                 </div>

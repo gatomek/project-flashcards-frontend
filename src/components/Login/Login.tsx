@@ -1,5 +1,5 @@
 import {useKeycloak} from '@react-keycloak/web';
-import {SquareButton} from "../SquareButton/SquareButton.tsx";
+import {SquareButton} from '../SquareButton/SquareButton.tsx';
 
 export function Login() {
     const {keycloak} = useKeycloak();
@@ -16,9 +16,7 @@ export function Login() {
         </div>
     ) : (
         <div className="login">
-            <SquareButton onClick={() => keycloak.login()}>
-                Login
-            </SquareButton>
+            <SquareButton onClick={() => keycloak.login()}>Login</SquareButton>
         </div>
     );
 }

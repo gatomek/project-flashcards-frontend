@@ -1,5 +1,5 @@
 import styles from './SquareButton.module.css';
-import type {ReactNode} from "react";
+import type {ReactNode} from 'react';
 
 export interface SquareButtonProps {
     children: ReactNode;
@@ -10,7 +10,7 @@ export interface SquareButtonProps {
 }
 
 export function SquareButton(props: Readonly<SquareButtonProps>) {
-    const cn = [styles.button, props.className ?? '', props.size === 'L' ? styles.large : ''].join( ' ');
+    const cn = [styles.button, props.className ?? '', props.size === 'L' ? styles.large : ''].join(' ');
     return (
         <button
             disabled={props.disabled}
@@ -18,9 +18,8 @@ export function SquareButton(props: Readonly<SquareButtonProps>) {
             onClick={() => {
                 props.onClick();
             }}
-        >{
-            props.children
-        }
+        >
+            {props.children}
         </button>
-    )
+    );
 }
