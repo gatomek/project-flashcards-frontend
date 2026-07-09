@@ -1,6 +1,6 @@
-# Flashcard
+# Flashcards
 
-## Project
+## GitHub Repo
 
 - https://github.com/gatomek/project-flashcards
     - https://github.com/gatomek/project-flashcards-frontend
@@ -9,7 +9,7 @@
 
 ## Application
 
-https://gatomek.github.io/project-flashcards-frontend/
+https://gatomek.github.io/project-flashcards-frontend
 
 ## Links
 

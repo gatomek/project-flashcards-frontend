@@ -1,4 +1,4 @@
-name: Deploy Flashcards to GitHub Pages
+name: Deploy App to GitHub Pages
 
 on:
     push:
