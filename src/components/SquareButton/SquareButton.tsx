@@ -15,9 +15,7 @@ export function SquareButton(props: Readonly<SquareButtonProps>) {
         <button
             disabled={props.disabled}
             className={cn}
-            onClick={() => {
-                props.onClick();
-            }}
+            onClick={props.onClick}
         >
             {props.children}
         </button>

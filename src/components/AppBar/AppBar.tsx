@@ -34,7 +34,6 @@ export function AppBar() {
             </div>
             {showInfo && (
                 <Modal onClick={() => setShowInfo(false)} size={'medium'}>
-                    {' '}
                     {infoContent}
                 </Modal>
             )}
